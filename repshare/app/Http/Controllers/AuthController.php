@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $role = Role::where('name', 'user')->firstOrFail();
+        $role = Role::where('name', 'User')->firstOrFail();
 
         $user = User::create([
             'name' => $validated['name'],
