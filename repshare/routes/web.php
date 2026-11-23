@@ -43,8 +43,12 @@ Route::middleware('guest')->group(function(){
 // Authenticated Routes
 Route::middleware('auth')->group(function(){
 
-    //Logout User
+    // Log out User
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout.user');
 
+    // My Workouts Page
+    Route::get('/my-workouts', [AuthController::class, function() {
+        return view('workouts.index');
+    }])->name('workouts.index');
 });

@@ -20,9 +20,11 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
 
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">My Workouts</a>
-                </li>
+                @auth
+                    <li class="nav-item">
+                        <a href="{{ route('workouts.index') }}" class="nav-link">My Workouts</a>
+                    </li>
+                @endauth
             </ul>
 
             <ul class="navbar-nav ml-auto">
