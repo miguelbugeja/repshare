@@ -55,11 +55,23 @@
                 @endguest
                 @auth
                     <li class="nav-item">
+                        <!-- Desktop -->
+                        <a href="{{ route('profile.show') }}" class="nav-link d-none d-lg-inline-block">
+                            My Profile
+                        </a>
+
+                        <!-- Mobile -->
+                        <a href="{{ route('profile.show') }}" class="nav-link d-lg-none">
+                            My Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <form method="POST" action="{{ route('logout.user') }}">
                             @csrf
 
                             <!-- Desktop -->
-                            <button type="submit" class="btn btn-outline-danger d-none d-lg-inline-block">
+                            <button type="submit" class="nav-link btn btn-link text-danger d-none d-lg-inline-block">
                                 Logout
                             </button>
 
