@@ -26,29 +26,48 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-lg-2">
-                    <!-- Desktop -->
-                    <a href="#" class="btn btn-outline-secondary d-none d-lg-inline-block">
-                        Login
-                    </a>
+                @guest
+                    <li class="nav-item mr-lg-2">
+                        <!-- Desktop -->
+                        <a href="{{ route('login') }}" class="btn btn-outline-secondary d-none d-lg-inline-block">
+                            Login
+                        </a>
 
-                    <!-- Mobile -->
-                    <a href="#" class="nav-link d-lg-none">
-                        Login
-                    </a>
-                </li>
+                        <!-- Mobile -->
+                        <a href="{{ route('login') }}" class="nav-link d-lg-none">
+                            Login
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <!-- Desktop -->
-                    <a href="#" class="btn btn-outline-primary d-none d-lg-inline-block">
-                        Register
-                    </a>
+                    <li class="nav-item">
+                        <!-- Desktop -->
+                        <a href="{{ route('register') }}" class="btn btn-outline-primary d-none d-lg-inline-block">
+                            Register
+                        </a>
 
-                    <!-- Mobile -->
-                    <a href="#" class="nav-link d-lg-none">
-                        Register
-                    </a>
-                </li>
+                        <!-- Mobile -->
+                        <a href="{{ route('register') }}" class="nav-link d-lg-none">
+                            Register
+                        </a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout.user') }}">
+                            @csrf
+
+                            <!-- Desktop -->
+                            <button type="submit" class="btn btn-outline-danger d-none d-lg-inline-block">
+                                Logout
+                            </button>
+
+                            <!-- Mobile -->
+                            <button type="submit" class="nav-link btn btn-link d-lg-none">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                @endauth
             </ul>
 
         </div>
