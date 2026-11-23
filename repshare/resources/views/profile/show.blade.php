@@ -31,8 +31,12 @@
 
                     <hr>
 
-                    <a href="{{ route('profile.edit') }}" class="btn btn-primary">
+                    <a href="{{ route('profile.edit') }}" class="btn btn-primary w-100 my-1">
                         Edit Profile
+                    </a>
+
+                    <a href="{{ route('profile.password.edit') }}" class="btn btn-secondary w-100 my-1">
+                        Change Password
                     </a>
 
                 </x-card>

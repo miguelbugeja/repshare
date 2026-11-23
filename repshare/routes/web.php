@@ -64,4 +64,12 @@ Route::middleware('auth')->group(function(){
     // Update Profile
     Route::put('/profile', [ProfileController::class, 'update'])
         ->name('profile.update');
+
+    // Change Password Page
+    Route::get('/profile/change-password', [ProfileController::class, 'showChangePassword'])
+        ->name('profile.password.edit');
+
+    // Change Password
+    Route::put('/profile/change-password', [ProfileController::class, 'changePassword'])
+        ->name('profile.password.update');
 });

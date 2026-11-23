@@ -13,16 +13,6 @@
                         @csrf
                         @method('PUT')
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input
@@ -32,6 +22,9 @@
                                 class="form-control"
                                 value="{{ old('name', $user->name) }}"
                             >
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -43,6 +36,9 @@
                                 class="form-control"
                                 value="{{ old('username', $user->username) }}"
                             >
+                            @error('username')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -54,6 +50,9 @@
                                 class="form-control"
                                 value="{{ old('email', $user->email) }}"
                             >
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">

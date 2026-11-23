@@ -45,4 +45,25 @@ class ProfileController extends Controller
             ->route('profile.show')
             ->with('success', 'Profile updated successfully.');
     }
+
+    public function showChangePassword(){
+        return view('profile.change-password');
+    }
+
+    public function changePassword(Request $request){
+        $validated = $request->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = User::findOrFail(auth()->id());
+
+        $user->update([
+            'password' => $validated['password']
+        ]);
+
+        return redirect()
+            ->route('profile.show')
+            ->with('success', 'Password updated successfully.');
+    }
 }
