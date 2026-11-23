@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         $role = Role::where('name', 'User')->firstOrFail();
 
-        $user = User::create([
+        $user = new User([
             'name' => $validated['name'],
             'username' => $validated['username'],
             'email' => $validated['email'],
