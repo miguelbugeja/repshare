@@ -6,6 +6,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <x-card title="My Profile">
 
                     <div class="mb-3">
@@ -22,6 +28,8 @@
                         <strong>Email:</strong>
                         <p>{{ $user->email }}</p>
                     </div>
+
+                    <hr>
 
                     <a href="{{ route('profile.edit') }}" class="btn btn-primary">
                         Edit Profile

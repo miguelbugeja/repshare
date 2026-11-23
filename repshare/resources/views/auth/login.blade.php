@@ -19,7 +19,6 @@
                                 id="username"
                                 class="form-control"
                                 value="{{ old('username') }}"
-                                required
                                 autofocus
                             >
 
@@ -35,7 +34,6 @@
                                 name="password"
                                 id="password"
                                 class="form-control"
-                                required
                             >
 
                             @error('password')
