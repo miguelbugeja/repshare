@@ -51,4 +51,16 @@ Route::middleware('auth')->group(function(){
     Route::get('/my-workouts', [AuthController::class, function() {
         return view('workouts.index');
     }])->name('workouts.index');
+
+    // Profile Page
+    Route::get('/profile', [ProfileController::class, 'show'])
+        ->name('profile.show');
+
+    // Edit Profile Page
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+
+    // Update Profile
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
 });
